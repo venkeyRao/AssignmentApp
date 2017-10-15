@@ -157,7 +157,7 @@ class Controller extends BaseController
       $name =  Request::input('searchFriend');
       $myId = Auth::id();
 
-      $users = User::where('name', 'like', $name)->where('id', '!=', $myId)->get();
+      $users = User::where('name', 'like', '%'.$name.'%')->where('id', '!=', $myId)->get();
 
       Session::forget('userSearchData');
 
